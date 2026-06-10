@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Isadora Lima · Contato</title>
+<meta name="description" content="Isadora Lima — Arquiteta e criadora do Método R2M. Solicite seu orçamento, conheça o método e veja a localização.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --tan:        #ab9474;
+    --cream:      #f4ecd9;
+    --cream-text: #6e5a44;
+    --terracotta: #bc5234;
+    --ink:        #fbf6ec;
+  }
+
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  html,body{ height:100%; }
+
+  body{
+    background:var(--tan);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100dvh;
+    padding:18px;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  /* O cartão usa a proporção exata da arte (600x1050) e é dimensionado
+     pelo menor limite entre largura e altura disponíveis — assim ele
+     sempre cabe inteiro, sem cortar, esticar ou gerar rolagem. */
+  .card{
+    position:relative;
+    width:min(420px, 100%, calc((100dvh - 36px) * 600 / 1050));
+    aspect-ratio:600 / 1050;
+    border-radius:22px;
+    overflow:hidden;
+    box-shadow:0 22px 55px rgba(110,70,50,.30);
+
+    background:
+      url('fundo.png'),
+      linear-gradient(165deg, #c1c1c1 0%, #cf8473 50%, var(--tan) 100%);
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+  }
+
+  /* Botões ancorados logo abaixo do subtítulo (61.5% da altura da arte).
+     Como o cartão tem proporção fixa, esse ponto cai sempre no mesmo
+     lugar da imagem, em qualquer tela. */
+  .links{
+    position:absolute;
+    top:61.5%;
+    left:0; right:0;
+    padding:0 7.5%;
+    display:flex;
+    flex-direction:column;
+    gap:2.6%;
+  }
+
+  .btn{
+    display:block;
+    text-align:center;
+    padding:3.2% 4%;
+    border-radius:13px;
+    font-family:'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+    font-size:clamp(15px, 4.6vw, 21px);
+    font-weight:500;
+    letter-spacing:.3px;
+    text-decoration:none;
+    transition:transform .18s ease, filter .18s ease;
+  }
+  .btn span{
+    text-decoration:underline;
+    text-decoration-thickness:1px;
+    text-underline-offset:4px;
+  }
+
+  .btn--cream{
+    background:var(--cream);
+    color:var(--cream-text);
+    box-shadow:0 6px 16px rgba(110,70,50,.20);
+  }
+  .btn--terracotta{
+    background:var(--terracotta);
+    color:var(--ink);
+    box-shadow:0 8px 20px rgba(120,40,25,.32);
+  }
+
+  .btn:hover{ transform:translateY(-2px); filter:brightness(1.03); }
+  .btn:active{ transform:translateY(0); }
+  .btn:focus-visible{ outline:2.5px solid var(--ink); outline-offset:3px; }
+
+  @media (prefers-reduced-motion: reduce){ .btn{ transition:none; } }
+
+  @media (max-width:480px){
+    body{ padding:0; }
+    .card{
+      border-radius:0;
+      width:min(100%, calc(100dvh * 600 / 1050));
+    }
+  }
+</style>
+</head>
+<body>
+
+  <main class="card">
+    <nav class="links">
+      <a class="btn btn--cream"
+         href="https://api.whatsapp.com/send/?phone=5548996019293&text=Ol%C3%A1%21+Gostaria+de+solicitar+um+or%C3%A7amento.&type=phone_number&app_absent=0"
+         target="_blank" rel="noopener">
+        <span>Solicite seu orçamento</span>
+      </a>
+
+      <a class="btn btn--terracotta"
+         href="https://isadoralima.arq.br"
+         target="_blank" rel="noopener">
+        <span>Método R2M — Render em 2 min</span>
+      </a>
+
+      <a class="btn btn--cream"
+         href="https://maps.app.goo.gl/zf7kohyQJneFA9ep9"
+         target="_blank" rel="noopener">
+        <span>Localização</span>
+      </a>
+    </nav>
+  </main>
+
+</body>
+</html>
